@@ -1,0 +1,65 @@
+代码部分：
+
+1 #include <stdio.h>
+2 #include <stdlib.h>
+3 #include <time.h>
+4 #include <math.h>
+5 
+6 int main()
+7 {
+8     int i = 0;
+9     int n = 0;
+10     int x = 0;
+11     int type;
+12     char flag;
+13     int a, b;
+14     float result1,result2;
+15     printf("请输入要出的题目数量\n");
+16     scanf_s("%d", &n);
+17     srand(unsigned(time(NULL)));
+18     while (x<n)
+19     {
+20         type = rand() % 4;
+21         a = rand() % 100;
+22         b = rand() % 100;
+23         switch (type)
+24         {
+25         case 0:
+26             printf("%d + %d = ?\n", a, b);
+27             result1 = a + b;
+28             break;
+29         case 1:
+30             printf("%d - %d = ?\n", a, b);
+31             result1 = a -b;
+32             break;
+33         case 2:
+34             printf("%d * %d = ?\n", a, b);
+35             result1 = a * b;
+36             break;
+37         case 3:
+38             printf("%d / %d = ?\n", a, b);
+39             result1 = (float)a / b;
+40             break;
+41         }
+42         printf_s("请输入答案：");
+43         scanf_s("%f",&result2);
+44         if (fabs(result1 - result2)<=1e-6)
+45         {
+46             printf_s("计算正确\n");
+47         }
+48         else
+49         {
+50             printf_s("计算错误\n");
+51         }
+52 
+53 
+54         i++;
+55         while (i >= n)
+56         {
+57             
+58             printf("谢谢使用！\n");
+59             fflush(stdin);
+60             getchar();
+61             return 0;
+62         }
+63     }
